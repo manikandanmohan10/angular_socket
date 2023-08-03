@@ -1,0 +1,38 @@
+<p>socket works!</p>
+<h2>Send a message to the server:</h2>
+<form (ngSubmit)="sendData(message); message = ''">
+  <input [(ngModel)]="message" name="message" type="text" autocomplete="off" />
+  <button type="submit" style="margin-left: 10px;">Send</button>
+</form>
+<div>
+  <form (ngSubmit)="clearData()">
+    <button style="margin: 10px;">Clear</button>
+  </form>
+</div>
+
+<div class="d-flex">
+    <div class="col-6">
+  
+      <h2>Sent messages</h2>
+      <div>
+  
+        <ul class="sent-message">
+          <li *ngFor="let data of sentData">
+            {{data.message}}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-6">
+  
+      <h2>Received messages from the server:</h2>
+      <div>
+        <ul class="received-message">
+          <li *ngFor="let data of receivedData">
+            {{ data.message }}
+          </li>
+        </ul>
+      </div>
+     
+    </div>
+  </div>
